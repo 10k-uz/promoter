@@ -14,26 +14,26 @@ api.interceptors.request.use(async (config) => {
   return config;
 });
 
-api.interceptors.response.use(
-  (response) => {
-    return response;
-  },
-  async function (error) {
-    if (error.response.status === 401) {
-      let errMessage = error.response.data.message;
+// api.interceptors.response.use(
+//   (response) => {
+//     return response;
+//   },
+//   async function (error) {
+//     if (error.response.status === 401) {
+//       let errMessage = error.response.data.message;
 
-      if (errMessage === "jwt expired") {
-        //refresh token
-        localStorage.clear();
-        window.location.href = "/auth/login";
-      } else if (error.response.data.error === "Unauthorized") {
-        localStorage.clear();
-        window.location.href = "/auth/login";
-      }
-    }
+//       if (errMessage === "jwt expired") {
+//         //refresh token
+//         localStorage.clear();
+//         window.location.href = "/auth/login";
+//       } else if (error.response.data.error === "Unauthorized") {
+//         localStorage.clear();
+//         window.location.href = "/auth/login";
+//       }
+//     }
 
-    return Promise.reject(error);
-  }
-);
+//     return Promise.reject(error);
+//   }
+// );
 
 export default api;
