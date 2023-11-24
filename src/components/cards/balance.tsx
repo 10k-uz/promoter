@@ -8,7 +8,7 @@ const BalanceCard = ({ amount }: { amount: number | string }) => {
         height={56}
       />
       <h1 className="self-center text-[#474747] text-[15px]">Balans</h1>
-      <h1 className="text-[22px] font-semibold">{amount || 0} so'm</h1>
+      <h1 className="text-[22px] font-semibold">{amount || 0} uzs</h1>
     </div>
   );
 };

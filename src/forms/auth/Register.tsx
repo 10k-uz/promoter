@@ -110,7 +110,7 @@ const RegisterForm = () => {
           register={register("password", {
             required: "Password to'ldirilishi shart!",
             minLength: {
-              value: 3,
+              value: 8,
               message: "Password 8 ta belgidan kam bo'lmasligi kerak",
             },
             maxLength: {

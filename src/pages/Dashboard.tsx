@@ -18,18 +18,19 @@ const Dashboard = () => {
           <DashboardCard
             image={"/assets/balance.svg"}
             label={"Hisob"}
-            amount={numberSpacer(data?.balance!)}
+            amount={numberSpacer(data?.balance! | 0)}
           />
           <DashboardCard
             image={"/assets/streams.svg"}
             label={"Oqimlar"}
-            amount={numberSpacer(data?.streams!)}
+            amount={numberSpacer(data?.streams! | 0)}
             sufix={"ta"}
           />
           <DashboardCard
             image={"/assets/views.svg"}
             label={"Ko'rishlar"}
-            amount={numberSpacer(data?.streamViews!)}
+            amount={numberSpacer(data?.streamViews! | 0)}
+            sufix="ta"
           />
         </div>
       )}

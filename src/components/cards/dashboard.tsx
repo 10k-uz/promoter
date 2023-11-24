@@ -28,7 +28,7 @@ const DashboardCard = ({
       <div className="flex flex-col justify-center">
         <span className="text-[#A7A7A7] font-medium text-[13px]">{label}</span>
         <h3 className="text-black font-semibold text-[16px]">
-          {amount || 0} {sufix || "so'm"}
+          {amount} {sufix || "uzs"}
         </h3>
       </div>
     </div>

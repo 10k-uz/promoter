@@ -76,8 +76,8 @@ const LoginForm = () => {
           register={register("password", {
             required: "Parol to'ldirilishi shart",
             maxLength: {
-              value: 50,
-              message: "Parol maximal 50 ta symbol bolishi kerak!",
+              value: 20,
+              message: "Parol maximal 20 ta symbol bolishi kerak!",
             },
             minLength: {
               value: 8,

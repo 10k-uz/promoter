@@ -1,8 +1,8 @@
 import axios from "axios";
-import { baseURL_Prod } from "../configs";
+import { baseURL_Prod, baseURL_Local } from "../configs";
 
 const api = axios.create({
-  baseURL: baseURL_Prod,
+  baseURL: baseURL_Local,
 });
 
 api.interceptors.request.use(async (config) => {
@@ -28,6 +28,10 @@ api.interceptors.response.use(
         window.location.href = "/auth/login";
       } else if (error.response.data.error === "Unauthorized") {
         localStorage.clear();
+        window.location.href = "/auth/login";
+      }
+    } else if (error.response.status === 404) {
+      if (window.location.pathname !== "/") {
         window.location.href = "/auth/login";
       }
     }
