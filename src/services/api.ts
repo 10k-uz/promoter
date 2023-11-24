@@ -1,8 +1,8 @@
 import axios from "axios";
-import { baseURL_Prod, baseURL_Local } from "../configs";
+import { baseURL_Prod } from "../configs";
 
 const api = axios.create({
-  baseURL: baseURL_Local,
+  baseURL: baseURL_Prod,
 });
 
 api.interceptors.request.use(async (config) => {
