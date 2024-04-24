@@ -1,0 +1,27 @@
+name: promoter.10k.uz / CD
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Connect VPS and deploy changes
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            cd 10k.uz/promoter/
+            git pull origin master
+            npm install
+            npm run build
+            rm -r /var/www/10k.uz/promoter/*
+            cp -r dist/* /var/www/10k.uz/promoter/
+            sudo systemctl restart nginx
+            sudo systemctl status nginx
